@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloppyBird - Play Free FloppyBird Game Online | PlayFloppyBird.com</title>
+    <meta name="description" content="Play FloppyBird online for free! Navigate through pipes in this addictive classic bird flying game. No download required - play instantly in your browser.">
+    <meta name="keywords" content="floppybird, flappy bird, bird game, online game, free game, browser game, flying game, arcade game">
+    <meta name="author" content="PlayFloppyBird">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://playfloppybird.com/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="FloppyBird - Play Free FloppyBird Game Online">
+    <meta property="og:description" content="Play FloppyBird online for free! Navigate through pipes in this addictive classic bird flying game.">
+    <meta property="og:url" content="https://playfloppybird.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PlayFloppyBird">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FloppyBird - Play Free FloppyBird Game Online">
+    <meta name="twitter:description" content="Play FloppyBird online for free! Navigate through pipes in this addictive classic bird flying game.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Apple-Style CSS -->
+    <style>
+        :root {
+            --apple-blue: #007AFF;
+            --apple-light-blue: #5AC8FA;
+            --apple-green: #34C759;
+            --apple-purple: #AF52DE;
+            --apple-gray: #8E8E93;
+            --apple-light-gray: #F2F2F7;
+        }
+        
+        .apple-gradient {
+            background: linear-gradient(135deg, var(--apple-blue) 0%, var(--apple-light-blue) 100%);
+        }
+        
+        .apple-gradient-purple {
+            background: linear-gradient(135deg, var(--apple-purple) 0%, var(--apple-blue) 100%);
+        }
+        
+        .game-container {
+            background: var(--apple-light-gray);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 122, 255, 0.15);
+        }
+        
+        .content-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .feature-card {
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.2);
+        }
+        
+        .game-iframe {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--apple-blue), var(--apple-light-blue));
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.4);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(45deg, var(--apple-blue), var(--apple-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        @media (max-width: 768px) {
+            .game-iframe {
+                height: 400px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .game-iframe {
+                height: 600px;
+            }
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="apple-gradient text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center floating-animation">
+                        <span class="text-3xl">🐦</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold">FloppyBird</h1>
+                        <p class="text-sm opacity-90 hidden md:block">Play Free Online</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#game" class="hover:text-blue-200 transition-colors font-medium">Play Game</a>
+                    <a href="#about" class="hover:text-blue-200 transition-colors font-medium">About</a>
+                    <a href="#features" class="hover:text-blue-200 transition-colors font-medium">Features</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-16 md:py-24">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-3xl mx-auto leading-relaxed">
+                Master the art of flight in this addictive classic - guide your bird through endless pipes and beat your high score!
+            </p>
+            <a href="#game" class="btn-primary inline-block text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-opacity-90 transition-all">
+                🎮 Start Playing Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-12">
+        
+        <!-- Game Section -->
+        <section id="game" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Play FloppyBird Game</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Tap or click to make your bird fly. Navigate through the pipes and see how far you can go!
+                </p>
+            </div>
+            
+            <div class="game-container p-6 md:p-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <iframe 
+                        src="https://nebezb.com/floppybird/" 
+                        class="w-full game-iframe"
+                        title="FloppyBird Game - Play Online Free"
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="text-center mt-6">
+                    <p class="text-gray-600 text-sm md:text-base">
+                        💡 <strong>Tip:</strong> Use spacebar on desktop or tap on mobile to control your bird
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="mb-20">
+            <div class="content-card p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gradient">
+                    About FloppyBird Game
+                </h2>
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-800">The Ultimate Bird Flying Challenge</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                            FloppyBird is the beloved arcade-style game that captured hearts worldwide. This simple yet incredibly challenging game requires you to guide a small bird through an endless series of green pipes using precise timing and quick reflexes.
+                        </p>
+                        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                            What makes FloppyBird so addictive? It's the perfect combination of simple controls and challenging gameplay. With just one tap or click, you control the bird's flight, but mastering the timing takes practice and patience.
+                        </p>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            Our browser-based version brings you all the excitement of the original game, optimized for modern devices and completely free to play.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-6 rounded-xl text-center">
+                            <div class="text-3xl mb-2">🎯</div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Simple Controls</h4>
+                            <p class="text-sm text-gray-600">One-tap gameplay that anyone can learn</p>
+                        </div>
+                        <div class="bg-green-50 p-6 rounded-xl text-center">
+                            <div class="text-3xl mb-2">🏆</div>
+                            <h4 class="font-semibold text-gray-800 mb-2">High Score</h4>
+                            <p class="text-sm text-gray-600">Challenge yourself to beat your record</p>
+                        </div>
+                        <div class="bg-purple-50 p-6 rounded-xl text-center">
+                            <div class="text-3xl mb-2">⚡</div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Instant Play</h4>
+                            <p class="text-sm text-gray-600">No downloads or installations needed</p>
+                        </div>
+                        <div class="bg-orange-50 p-6 rounded-xl text-center">
+                            <div class="text-3xl mb-2">📱</div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Cross Platform</h4>
+                            <p class="text-sm text-gray-600">Play on any device, anywhere</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Play Section -->
+        <section class="mb-20">
+            <div class="content-card p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+                    How to Play FloppyBird
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white text-xl">🖱️</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Desktop Controls</h3>
+                        </div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2 mt-1">•</span>
+                                <span>Press <strong>SPACEBAR</strong> to make the bird flap</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2 mt-1">•</span>
+                                <span>Click anywhere on the screen to flap</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-2 mt-1">•</span>
+                                <span>Find your rhythm for better control</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white text-xl">📱</span>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-800">Mobile Controls</h3>
+                        </div>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">•</span>
+                                <span>Tap anywhere on the screen to flap</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">•</span>
+                                <span>Use quick, light taps for precise control</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-2 mt-1">•</span>
+                                <span>Avoid holding your finger down</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-8 rounded-xl">
+                    <h3 class="text-2xl font-semibold text-center mb-8 text-gray-800">🎯 Pro Tips for Success</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">⚖️</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Stay Centered</h4>
+                            <p class="text-sm text-gray-600">Keep your bird in the middle area for better navigation through pipes</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">🎵</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Find Your Rhythm</h4>
+                            <p class="text-sm text-gray-600">Develop a consistent tapping pattern rather than random clicking</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">👁️</span>
+                            </div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Look Ahead</h4>
+                            <p class="text-sm text-gray-600">Focus on upcoming pipes rather than just watching the bird</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="mb-20">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+                Why Choose Our FloppyBird?
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="feature-card p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 apple-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">⚡</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Lightning Fast</h3>
+                    <p class="text-gray-600">Optimized for instant loading and smooth gameplay on all devices</p>
+                </div>
+                
+                <div class="feature-card p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">🛡️</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Safe & Secure</h3>
+                    <p class="text-gray-600">No downloads required, no personal data collected - just pure gaming fun</p>
+                </div>
+                
+                <div class="feature-card p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">🎮</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Classic Gameplay</h3>
+                    <p class="text-gray-600">Authentic FloppyBird experience with modern optimizations</p>
+                </div>
+                
+                <div class="feature-card p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl">🌟</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Always Updated</h3>
+                    <p class="text-gray-600">Regular improvements and bug fixes for the best gaming experience</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="text-center">
+            <div class="apple-gradient-purple rounded-2xl p-12 text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready for the Challenge?</h2>
+                <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+                    Join millions of players worldwide who have tested their skills with FloppyBird. 
+                    How far can you fly?
+                </p>
+                <a href="#game" class="inline-block bg-white text-purple-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all shadow-lg">
+                    🚀 Play FloppyBird Now
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-6">
+                    <div class="w-12 h-12 apple-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white text-2xl">🐦</span>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold">FloppyBird Online</h3>
+                        <p class="text-gray-400 text-sm">PlayFloppyBird.com</p>
+                    </div>
+                </div>
+                
+                <p class="text-gray-300 mb-8 max-w-2xl mx-auto text-lg">
+                    The ultimate destination for playing FloppyBird online. Experience the classic bird flying game 
+                    that became a global phenomenon, now optimized for modern browsers.
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-6 mb-8 text-gray-400">
+                    <a href="#game" class="hover:text-white transition-colors">Play Game</a>
+                    <a href="#about" class="hover:text-white transition-colors">About</a>
+                    <a href="#features" class="hover:text-white transition-colors">Features</a>
+                    <a href="mailto:contact@playfloppybird.com" class="hover:text-white transition-colors">Contact</a>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-8">
+                    <p class="text-gray-500 text-sm">
+                        © 2024 PlayFloppyBird.com - Play FloppyBird Online Free. All rights reserved.
+                        <br class="md:hidden">
+                        <span class="hidden md:inline"> | </span>
+                        The best place to play FloppyBird game online.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "FloppyBird Online",
+        "description": "Play FloppyBird online for free! Navigate through pipes in this addictive classic bird flying game. No download required - play instantly in your browser.",
+        "url": "https://playfloppybird.com/",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "PlayFloppyBird"
+        },
+        "genre": "Arcade Game",
+        "gameLocation": "https://playfloppybird.com/",
+        "playMode": "SinglePlayer",
+        "keywords": "floppybird, flappy bird, online game, free game, browser game, arcade game",
+        "inLanguage": "en",
+        "isAccessibleForFree": true
+    }
+    </script>
+</body>
+</html> 
+ 
